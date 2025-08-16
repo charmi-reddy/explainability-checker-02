@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Explainability Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Explainability Report</h1>
+        <p><strong>Score:</strong> {{ score }}/100</p>
+        {% if issues %}
+            <h2>Issues Found:</h2>
+            <ul>
+                {% for issue in issues %}
+                    <li>{{ issue }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No explainability issues found.</p>
+        {% endif %}
+        <a href="/">Upload another file</a>
+    </div>
+</body>
+</html>
