@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Python Code Explainability Checker</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Code Explainability Checker</h1>
+    <form method="POST" action="/check" enctype="multipart/form-data">
+      <input type="file" name="file" accept=".py" required />
+      <button type="submit">Analyze</button>
+    </form>
+
+    {% if score is not none %}
+    <div class="result">
+      <h2>Score: <span>{{ score }}/100</span></h2>
+      <ul>
+        {% for issue in issues %}
+        <li>{{ issue }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>
