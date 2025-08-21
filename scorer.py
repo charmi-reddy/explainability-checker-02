@@ -1,8 +1,7 @@
 import ast
 import tokenize
 from io import BytesIO
-from heuristics import compute_explainability_score  # you already wrote this
-
+from heuristics import compute_explainability_score 
 class CodeAnalyzer:
     def __init__(self, code: str):
         self.code = code
@@ -11,12 +10,10 @@ class CodeAnalyzer:
 
     def get_score_and_issues(self):
         return compute_explainability_score(self.ast_tree)
-
-# This is the function used in app.py after file upload
+#Gonna use the below func for uploading files
 def analyze_code(filepath: str):
     with open(filepath, 'r', encoding='utf-8') as f:
         code = f.read()
-
     analyzer = CodeAnalyzer(code)
     score, issues = analyzer.get_score_and_issues()
     return score, issues
