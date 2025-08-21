@@ -1,5 +1,4 @@
 import ast
-
 def compute_explainability_score(tree):
     score = 0
     max_score = 100
