@@ -3,8 +3,6 @@ def compute_explainability_score(tree):
     score = 0
     max_score = 100
     issues = []
-
-    # Heuristic 1: Docstring presence
     has_docstring = any(
         isinstance(node, ast.FunctionDef) and ast.get_docstring(node)
         for node in ast.walk(tree)
