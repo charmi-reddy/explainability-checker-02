@@ -1,8 +1,6 @@
 from flask import Flask, render_template, request
 import ast
-
 app = Flask(__name__)
-
 def compute_explainability_score(tree):
     score = 0
     max_score = 100
