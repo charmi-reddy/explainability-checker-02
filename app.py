@@ -1,10 +1,13 @@
 from flask import Flask, render_template, request
 import ast
+
 app = Flask(__name__)
+
 def compute_explainability_score(tree):
     score = 0
     max_score = 100
     issues = []
+
     has_docstring = any(
         isinstance(node, ast.FunctionDef) and ast.get_docstring(node)
         for node in ast.walk(tree)
@@ -13,6 +16,7 @@ def compute_explainability_score(tree):
         score += 10
     else:
         issues.append("Missing function docstrings")
+
     short_names = []
     allowed_short = {'i', 'j', 'x', 'y', '_'}
     for node in ast.walk(tree):
