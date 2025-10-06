@@ -9,8 +9,7 @@ def compute_explainability_score(tree):
     )
 
     if has_docstring:
-        score += 10
-    else:
+        score += 10    else:
         issues.append("Missing function docstrings")
     short_names = []
     allowed_short = {'i', 'j', 'x', 'y', '_'}
