@@ -7,7 +7,6 @@ def compute_explainability_score(tree):
         isinstance(node, ast.FunctionDef) and ast.get_docstring(node)
         for node in ast.walk(tree)
     )
-
     if has_docstring:
         score += 10    
     else:
